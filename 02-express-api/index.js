@@ -36,6 +36,24 @@ app.delete('/items/:id', async (req, res) => {
     }
 });
 
+// Update an item
+// Update an item
+app.patch('/items/:id', async (req, res) => {
+    try {
+        const updatedItem = await Item.findByIdAndUpdate(
+            req.params.id,           // Güncellenecek öğenin ID'si
+            req.body,                // İstemciden gelen güncelleme verileri
+            { new: true }            // Güncellenmiş öğeyi döndür
+        );
+        if (!updatedItem) {
+            return res.status(404).json({ message: 'Item not found' });
+        }
+        res.json(updatedItem);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
 
 const PORT = 3000;
 app.listen(PORT, () => {
