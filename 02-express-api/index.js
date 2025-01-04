@@ -1,30 +1,18 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('express').json;
-const itemRoutes = require('./routes/items');
-const userRoutes = require('./routes/users');
+const http = require('http');
+const { Server } = require('socket.io');
+const app = require('./app');
 
-const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 
-// Middleware
-app.use(bodyParser());
-
-// Database Connection
-mongoose.connect('mongodb://localhost:27017/myapp', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => {
-    console.log('Connected to MongoDB');
-}).catch((err) => {
-    console.error('Error connecting to MongoDB:', err);
+io.on('connection', (socket) => {
+    console.log('A user connected');
+    socket.on('disconnect', () => {
+        console.log('User disconnected');
+    });
 });
 
-// Routes
-app.use('/items', itemRoutes);
-app.use('/users', userRoutes);
-
-// Server
 const PORT = 3000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

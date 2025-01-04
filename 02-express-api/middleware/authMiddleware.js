@@ -7,8 +7,8 @@ const protect = (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token, 'your_jwt_secret');
-        req.user = decoded;
+        const decoded = jwt.verify(token, 'your_jwt_secret'); // Token doğrulama
+        req.user = decoded; // Token'dan kullanıcı bilgilerini al
         next();
     } catch (err) {
         res.status(401).json({ message: 'Not authorized, invalid token' });

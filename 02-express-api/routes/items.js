@@ -35,6 +35,7 @@ router.post('/', protect, async (req, res) => {
     const item = new Item({ name: req.body.name });
     try {
         const newItem = await item.save();
+        req.io.emit('newItem', newItem); // req.io üzerinden emit
         res.status(201).json(newItem);
     } catch (err) {
         res.status(400).json({ message: err.message });

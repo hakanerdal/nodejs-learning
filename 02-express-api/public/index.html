@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.IO Client</title>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Socket.IO Client</h1>
+    <script>
+        // Sunucuya bağlan
+        const socket = io('http://localhost:3000'); // Socket.IO sunucusunun URL'si
+
+        // Bağlantı kurulduğunda mesaj al
+        socket.on('connect', () => {
+            console.log('Connected to server');
+        });
+
+        // Sunucudan "newItem" mesajı al
+        socket.on('newItem', (item) => {
+            console.log('New item added:', item);
+        });
+
+        // Bağlantı kesildiğinde mesaj al
+        socket.on('disconnect', () => {
+            console.log('Disconnected from server');
+        });
+    </script>
+</body>
+</html>
