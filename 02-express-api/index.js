@@ -1,6 +1,7 @@
+const Item = require('./models/Item');
+const { body, validationResult } = require('express-validator');
 const express = require('express');
 const app = express();
-const Item = require('./models/Item');
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -36,23 +37,38 @@ app.delete('/items/:id', async (req, res) => {
     }
 });
 
+
+
 // Update an item
-// Update an item
-app.patch('/items/:id', async (req, res) => {
-    try {
-        const updatedItem = await Item.findByIdAndUpdate(
-            req.params.id,           // Güncellenecek öğenin ID'si
-            req.body,                // İstemciden gelen güncelleme verileri
-            { new: true }            // Güncellenmiş öğeyi döndür
-        );
-        if (!updatedItem) {
-            return res.status(404).json({ message: 'Item not found' });
+app.patch('/items/:id', 
+    // Validation middleware
+    body('name').notEmpty().withMessage('Name is required'),
+    body('name').isString().withMessage('Name must be a string'),
+    body('name').isLength({ min: 3 }).withMessage('Name must be at least 3 characters'),
+
+    async (req, res) => {
+        // Check for validation errors
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
         }
-        res.json(updatedItem);
-    } catch (err) {
-        res.status(400).json({ message: err.message });
+
+        try {
+            const updatedItem = await Item.findByIdAndUpdate(
+                req.params.id, // Item ID
+                req.body,      // Updated data
+                { new: true }  // Return the updated document
+            );
+            if (!updatedItem) {
+                return res.status(404).json({ message: 'Item not found' });
+            }
+            res.json(updatedItem);
+        } catch (err) {
+            res.status(400).json({ message: err.message });
+        }
     }
-});
+);
+
 
 
 const PORT = 3000;
