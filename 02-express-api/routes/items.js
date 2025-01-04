@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Item = require('../models/Item');
+const { protect } = require('../middleware/authMiddleware');
 
 // Get all items with pagination
-router.get('/', async (req, res) => {
+router.get('/', protect, async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
     const { name } = req.query;
     const query = name ? { name: new RegExp(name, 'i') } : {};
@@ -30,7 +31,7 @@ router.get('/', async (req, res) => {
 
 
 // Add a new item
-router.post('/', async (req, res) => {
+router.post('/', protect, async (req, res) => {
     const item = new Item({ name: req.body.name });
     try {
         const newItem = await item.save();
@@ -41,7 +42,7 @@ router.post('/', async (req, res) => {
 });
 
 // Update an item
-router.patch('/:id', async (req, res) => {
+router.patch('/:id', protect, async (req, res) => {
     try {
         const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!updatedItem) {
@@ -54,7 +55,7 @@ router.patch('/:id', async (req, res) => {
 });
 
 // Delete an item
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', protect, async (req, res) => {
     try {
         await Item.findByIdAndDelete(req.params.id);
         res.status(204).send();
