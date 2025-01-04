@@ -1,26 +1,40 @@
-## 1. Node.js'in Temellerini Anlama
-- [ ] Node.js'in çalışma prensiplerini öğrenebiliriz.
-- [ ] Modüller, require, ve module.exports gibi temel yapı taşlarını kavrayabiliriz.
-- [ ] İlk basit uygulamanızı birlikte yazabiliriz.
+# Node.js Öğrenme Yolculuğu 🚀
 
-## 2. Express.js ile RESTful API Geliştirme
-- [ ] Express.js kurulumu ve temel kullanımını öğreniriz.
-- [ ] CRUD işlemleri içeren bir API tasarlayabiliriz.
-- [ ] JSON veri işleme ve rotalar oluşturmayı birlikte yaparız.
+Bu repo, Node.js'i öğrenirken attığım adımları ve yaptığım projeleri içermektedir.
 
-## 3. Veritabanı Entegrasyonu
-- [ ] MongoDB veya PostgreSQL seçerek bir veritabanı bağlayabiliriz.
-- [ ] Veritabanı tasarımı, bağlantı ve veri işlemleri konularında size rehberlik ederim.
+## Adımlar
 
-## 4. Gelişmiş Konular
-- [ ] Authentication: JWT veya OAuth kullanarak güvenlik sağlarız.
-- [ ] Gerçek Zamanlı İletişim: WebSocket veya Socket.IO ile bir gerçek zamanlı özellik ekleriz.
-- [ ] Test Yazma: Jest veya Mocha kullanarak test yazmayı öğrenebiliriz.
+1. **Node.js'in Temellerini Anlama**
+   - Node.js'in çalışma prensipleri
+   - Modüller (`require`, `module.exports`)
+   - Basit bir uygulama geliştirme
 
-## 5. TypeScript ile Node.js
-- [ ] TypeScript’i backend projelerinde nasıl kullanacağınızı öğretirim.
-- [ ] Projeyi TypeScript ile yeniden yapılandırırız.
+2. **Express.js ile RESTful API Geliştirme**
+   - Express.js kurulumu
+   - CRUD işlemleri
+   - JSON veri işleme
 
-## 6. Modern Uygulamalar ve Dağıtım
-- [ ] Docker kullanarak bir uygulamayı konteynerize ederiz.
-- [ ] Uygulamayı bir bulut platformuna (AWS, Heroku, Vercel) dağıtabiliriz.
+3. **Veritabanı Entegrasyonu**
+   - MongoDB veya PostgreSQL kullanımı
+   - Veritabanı bağlantısı ve CRUD işlemleri
+
+4. **Gelişmiş Konular**
+   - JWT ile Authentication
+   - Gerçek zamanlı iletişim (WebSocket/Socket.IO)
+   - Test yazma (Jest/Mocha)
+
+5. **TypeScript ile Node.js**
+   - TypeScript entegrasyonu
+   - Proje yeniden yapılandırma
+
+6. **Modern Uygulamalar ve Dağıtım**
+   - Docker ile konteynerizasyon
+   - Bulut platformlarına dağıtım
+
+## Hedeflerim
+- [ ] Node.js temellerini öğrenmek
+- [ ] Express.js ile bir API geliştirmek
+- [ ] Veritabanı entegrasyonunu gerçekleştirmek
+- [ ] Gerçek zamanlı bir özellik eklemek
+- [ ] Uygulamayı TypeScript ile geliştirmek
+- [ ] Projeyi Dockerize edip dağıtmak
