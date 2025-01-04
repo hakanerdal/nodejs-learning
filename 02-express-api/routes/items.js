@@ -2,15 +2,32 @@ const express = require('express');
 const router = express.Router();
 const Item = require('../models/Item');
 
-// Get all items
+// Get all items with pagination
 router.get('/', async (req, res) => {
+    const { page = 1, limit = 10 } = req.query;
+    const { name } = req.query;
+    const query = name ? { name: new RegExp(name, 'i') } : {};
+
     try {
-        const items = await Item.find();
-        res.json(items);
+        // Toplam öğe sayısını ve sayfalama parametrelerini hesapla
+        const totalItems = await Item.countDocuments();
+        const items = await Item.find(query)
+            .limit(limit * 1) // Limit kadar öğe getir
+            .skip((page - 1) * limit) // Sayfa başına öğeleri atla
+            .sort({ name: 1 }) // 'name' alanına göre artan sıralama
+            .exec();
+
+        res.json({
+            totalItems,
+            totalPages: Math.ceil(totalItems / limit),
+            currentPage: page,
+            items,
+        });
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 });
+
 
 // Add a new item
 router.post('/', async (req, res) => {
