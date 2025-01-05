@@ -10,8 +10,8 @@ mongoose.connect('mongodb://localhost:27017/myapp')
     .catch(err => console.error('Error connecting to MongoDB:', err));
 
 // Rotalar
-const itemRoutes = require('./routes/items');
-const userRoutes = require('./routes/users');
+const itemRoutes = require('./src/routes/items');
+const userRoutes = require('./src/routes/users');
 app.use('/items', itemRoutes);
 app.use('/users', userRoutes);
 

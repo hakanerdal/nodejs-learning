@@ -1,6 +1,6 @@
 # Node.js Öğrenme Yolculuğu 🚀
 
-Bu repo, Node.js'i öğrenirken tamamladığım adımları, projeleri ve uygulamaları içermektedir. Adım adım ilerleyerek modern bir Node.js geliştiricisi olma yolunda attığım adımları burada belgeliyorum. 🎯
+Bu repo, Node.js'i öğenirken tamamladığım adımları, projeleri ve uygulamaları içermektedir. Adım adım ilerleyerek modern bir Node.js geliştiricisi olma yolunda attığım adımları burada belgeliyorum. 🎯
 
 ## İçerik
 - [Adımlar](#adımlar)
@@ -34,11 +34,19 @@ Bu repo, Node.js'i öğrenirken tamamladığım adımları, projeleri ve uygulam
 - Test yazma (Jest ile API testleri).
 
 ### 5. TypeScript ile Node.js
-- TypeScript kurulumu ve entegrasyonu.
-- Kodun yeniden yapılandırılması.
-- Tür güvenliği ile daha sağlam bir yapı oluşturma.
+- TypeScript kurulumu ve proje yapılandırması.
+- Mevcut JavaScript kodlarının `.ts` dosyalarına dönüştürülmesi.
+- Tür güvenliği eklenerek kodun daha sağlam hale getirilmesi.
+- TypeScript desteğiyle Jest testlerini çalıştırma.
+- Proje genelinde TypeScript ile kod standardını belirlemek ve linter eklemek.
 
-### 6. Modern Uygulamalar ve Dağıtım
+### 6. Frontend ile Entegrasyon
+- React veya Vue.js ile frontend oluşturma.
+- API ile frontend entegrasyonu.
+- Gerçek zamanlı özelliklerin frontend tarafına aktarılması.
+- Kullanıcı dostu bir arayüz geliştirme.
+
+### 7. Modern Uygulamalar ve Dağıtım
 - Docker kullanarak uygulamayı konteynerize etme.
 - CI/CD süreçleri ile otomatik dağıtım.
 - Bulut platformlarında canlıya alma (Heroku, AWS, Vercel).
@@ -48,7 +56,8 @@ Bu repo, Node.js'i öğrenirken tamamladığım adımları, projeleri ve uygulam
 - [x] Express.js ile bir API geliştirmek ✔️
 - [x] Veritabanı entegrasyonunu gerçekleştirmek ✔️
 - [ ] Gerçek zamanlı bir özellik eklemek ⏳
-- [ ] Uygulamayı TypeScript ile geliştirmek 🔧
+- [ ] Uygulamayı TypeScript ile geliştirmek 🔧 (Devam ediyor)
+- [ ] Frontend entegrasyonunu tamamlamak ⏳
 - [ ] Projeyi Dockerize edip dağıtmak 🚀
 
 ## Projeler
@@ -67,5 +76,7 @@ Bu repo, Node.js'i öğrenirken tamamladığım adımları, projeleri ve uygulam
 - [Node.js Resmi Dokümantasyonu](https://nodejs.org/)
 - [Express.js Rehberi](https://expressjs.com/)
 - [Mongoose Dokümantasyonu](https://mongoosejs.com/)
+- [TypeScript Resmi Dokümantasyonu](https://www.typescriptlang.org/)
 - [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Docker Resmi Dokümantasyonu](https://docs.docker.com/)
+
